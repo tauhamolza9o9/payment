@@ -1,4 +1,4 @@
-/* Blur the real page */
+/* Hide legitimate content during attack */
 header, main, footer {
   filter: blur(5px);
   pointer-events: none;
@@ -47,6 +47,7 @@ header, main, footer {
   font-weight: bold;
   cursor: pointer;
   margin-top: 10px;
+  transition: background 0.2s;
 }
 
 .phishing-button:hover {
@@ -58,4 +59,15 @@ header, main, footer {
   color: #666;
   margin-top: 15px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+/* Input focus styles */
+.phishing-input:focus {
+  outline: none;
+  border-color: #d23f00;
+  box-shadow: 0 0 0 2px rgba(210, 63, 0, 0.2);
 }
