@@ -19,38 +19,33 @@ header, main, footer {
 
 .phishing-container {
   background: white;
-  width: 300px;
+  width: 350px;
   margin: 100px auto;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-.payment-input {
+.phishing-input {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   margin: 8px 0;
-  border: 1px solid #ddd;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.payment-button {
-  background: #4CAF50;
+.phishing-button {
+  background-color: #d23f00;
   color: white;
-  padding: 10px 15px;
+  padding: 12px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   width: 100%;
-  margin-top: 10px;
+  font-weight: bold;
 }
 
-.payment-button:hover {
-  background: #45a049;
-}
-
-.small-text {
-  font-size: 12px;
-  color: #666;
-  margin-top: 15px;
+.phishing-button:hover {
+  background-color: #b23700;
 }
