@@ -1,51 +1,61 @@
-/* Hide legitimate content during attack */
+/* Blur the real page */
 header, main, footer {
-  filter: blur(2px);
+  filter: blur(5px);
   pointer-events: none;
   user-select: none;
 }
 
-/* Style for the phishing overlay */
+/* Overlay styles */
 .phishing-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.8);
   z-index: 99999;
-  font-family: Arial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
 }
 
 .phishing-container {
   background: white;
   width: 350px;
-  margin: 100px auto;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 .phishing-input {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
   border-radius: 4px;
+  font-size: 14px;
 }
 
 .phishing-button {
-  background-color: #d23f00;
+  background: #d23f00;
   color: white;
-  padding: 12px 20px;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  padding: 14px;
   width: 100%;
+  border-radius: 4px;
   font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 .phishing-button:hover {
-  background-color: #b23700;
+  background: #b23700;
+}
+
+.security-note {
+  font-size: 12px;
+  color: #666;
+  margin-top: 15px;
+  text-align: center;
 }
